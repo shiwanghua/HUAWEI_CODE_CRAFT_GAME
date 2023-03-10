@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\我的文件啊\研究生\华为比赛\WindowsRelease\SDK\c++\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\我的文件啊\研究生\华为比赛\WindowsRelease\SDK\c++\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{EECE4331-4634-3441-8D29-29D9F93017E1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
