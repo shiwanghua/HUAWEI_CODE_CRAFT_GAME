@@ -1,0 +1,219 @@
+{
+    "cmake.configureOnOpen": true,
+    "cmake.sourceDirectory": "${workspaceFolder}/LinuxRelease/SDK/c++",
+    "cmake.cmakePath": "/usr/bin/cmake3",
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "cmake.ctest.parallelJobs": 1,
+    "cmake.parallelJobs": 1,
+    "editor.tabSize": 2,
+    "editor.renderControlCharacters": false,
+    "editor.renderWhitespace": "all",
+    "workbench.colorCustomizations": {
+        "editorBracketHighlight.foreground1": "#ffd700",
+        "editorBracketPairGuide.activeBackground1": "#ffd7007f",
+        "editorBracketHighlight.foreground2": "#da70d6",
+        "editorBracketPairGuide.activeBackground2": "#da70d67f",
+        "editorBracketHighlight.foreground3": "#87cefa",
+        "editorBracketPairGuide.activeBackground3": "#87cefa7f",
+        "editorBracketHighlight.foreground4": "#ffd700",
+        "editorBracketPairGuide.activeBackground": "#ffd7007f",
+        "editorBracketHighlight.foreground5": "#da70d6",
+        "editorBracketPairGuide.activeBackground5": "#da70d67f",
+        "editorBracketHighlight.foreground6": "#87cefa",
+        "editorBracketPairGuide.activeBackground6": "#87cefa7f",
+        "editorBracketHighlight.unexpectedBracket.foreground": "#ff0000"
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.guides.highlightActiveBracketPair": true,
+    "remote.SSH.remotePlatform": {
+        "c7": "linux"
+    },
+    "files.autoGuessEncoding": true,
+    "cmake.ctestPath": "/usr/bin/ctest3",
+    "output.smartScroll.enabled": false,
+    "cmake.copyCompileCommands": "",
+    "cmake.installPrefix": "",
+    "python.pythonPath": "python3",
+    "git.ignoreMissingGitWarning": true,
+    "git.ignoreLegacyWarning": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/build": true,
+        "**/.DS_Store": true
+    },
+    "git.ignoreWindowsGit27Warning": true,
+    "git.autofetch": true,
+    "fileheader.configObj": {
+        "createFileTime": true,
+        "language": {
+            "h/hpp/c/cpp": {
+                "head": "/****************************************************************************",
+                "middle": " * ** ",
+                "end": " *****************************************************************************/",
+                "use": true
+            }
+        },
+        "autoAdd": true,
+        "autoAddLine": 5100,
+        "autoAlready": true,
+        "annotationStr": {
+            "head": "/*",
+            "middle": " * @",
+            "end": " */",
+            "use": false
+        },
+        "headInsertLine": {
+            "php": 2
+        },
+        "beforeAnnotation": {
+            "py": "# -*- coding: utf-8 -*-"
+        },
+        "afterAnnotation": {
+            "文件后缀": "该文件后缀的头部注释之后添加某些内容"
+        },
+        "specialOptions": {
+            "Date": "Create Date",
+            "LastEditTime": "Last Time",
+            "LastEditors": "Last Author",
+            "Description": "Description"
+        },
+        "switch": {
+            "newlineAddAnnotation": true
+        },
+        "supportAutoLanguage": [],
+        "prohibitAutoAdd": [
+            "json"
+        ],
+        "prohibitItemAutoAdd": [
+            "项目的全称, 整个项目禁止自动添加头部注释, 可以使用快捷键添加"
+        ],
+        "moveCursor": false,
+        "dateFormat": "YYYY-MM-DD HH:mm:ss",
+        "atSymbol": "@",
+        "atSymbolObj": {
+            "文件后缀": "修改它的@符号"
+        },
+        "colon": [
+            ": ",
+            ": "
+        ],
+        "colonObj": {},
+        "filePathColon": "/",
+        "showErrorMessage": true,
+        "wideSame": false,
+        "wideNum": 13,
+        "CheckFileChange": false,
+        "createHeader": true,
+        "useWorker": false,
+        "typeParam": false,
+        "designAddHead": false,
+        "headDesignName": "random",
+        "headDesign": false
+    },
+    "fileheader.customMade": {
+        "custom_string_obkoro1_copyright": "Copyright (c) 2016-${now_year}, SJTU. All rights reserved.",
+        "custom_string_obkoro1": "",
+        "Author": "ShiWanghua",
+        "custom_string_obkoro2": "",
+        "Date": "Do not edit",
+        "custom_string_obkoro3": "",
+        "LastEditTime": "Do not edit",
+        "custom_string_obkoro4": "",
+        "LastEditors": "ShiWanghua",
+        "custom_string_obkoro5": "",
+        "Description": ""
+    },
+    "doxdocgen.generic.order": [ // 自动生成的注释模板（目前主要体现在函数注释上）
+    "brief",
+    "tparam",
+    "param",
+    "return"
+    ],
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "gitflow.views.feature.showRemoteBranches": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "LineCount.excludes": [
+        "**/tmp/**",
+        "**/.vscode/**",
+        "**/node_modules/**"
+    ],
+    "LineCount.output": {
+        "txt": false,
+        "json": false,
+        "csv": false,
+        "md": false,
+        "outdir": "out"
+    },
+    "LineCount.comment": [
+        {
+            "ext": [
+                "c",
+                "cpp"
+            ],
+            "separator": {
+                "linecomment": "//",
+                "linetol": false,
+                "blockstart": "/*",
+                "blockend": "*/",
+                "blocktol": false,
+                "string": {
+                    "doublequotes": true,
+                    "singlequotes": true
+                }
+            }
+        }
+    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "C_Cpp.default.cppStandard": "c++14",
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.workspaceSymbols": "All",
+    "C_Cpp.updateChannel": "Insiders",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "todohighlight.keywordsPattern": "TODO\\(.*\\):|TODO:",
+    "editor.formatOnSave": true,
+    "C_Cpp.formatting": "clangFormat",
+    "cmake.generator": "Unix Makefiles",
+    "C_Cpp.codeAnalysis.clangTidy.useBuildPath": true,
+    "editor.tokenColorCustomizations": {
+    },
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "*.tcc": "cpp",
+        "cctype": "cpp",
+        "clocale": "cpp",
+        "cmath": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cwchar": "cpp",
+        "cwctype": "cpp",
+        "exception": "cpp",
+        "initializer_list": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "new": "cpp",
+        "ostream": "cpp",
+        "stdexcept": "cpp",
+        "streambuf": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "typeinfo": "cpp",
+        "vector": "cpp",
+        "unordered_set": "cpp"
+    }
+}
