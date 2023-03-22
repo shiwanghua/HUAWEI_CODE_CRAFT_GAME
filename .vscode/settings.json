@@ -1,7 +1,7 @@
 {
     "cmake.configureOnOpen": true,
-    "cmake.sourceDirectory": "${workspaceFolder}/LinuxRelease/SDK/c++",
-    "cmake.cmakePath": "/usr/bin/cmake3",
+    "cmake.sourceDirectory": "d:\\codes\\cpp\\HUAWEI_CODE_CRAFT_GAME\\LinuxRelease\\SDK\\c++",
+    "cmake.cmakePath": "C:\\Users\\石望华\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python310\\site-packages\\cmake\\data\\bin\\cmake3.exe",
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "cmake.ctest.parallelJobs": 1,
     "cmake.parallelJobs": 1,
@@ -128,10 +128,10 @@
         "Description": ""
     },
     "doxdocgen.generic.order": [ // 自动生成的注释模板（目前主要体现在函数注释上）
-    "brief",
-    "tparam",
-    "param",
-    "return"
+        "brief",
+        "tparam",
+        "param",
+        "return"
     ],
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
@@ -185,8 +185,7 @@
     "C_Cpp.formatting": "clangFormat",
     "cmake.generator": "Unix Makefiles",
     "C_Cpp.codeAnalysis.clangTidy.useBuildPath": true,
-    "editor.tokenColorCustomizations": {
-    },
+    "editor.tokenColorCustomizations": {},
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
         "*.tcc": "cpp",
