@@ -20,12 +20,20 @@ struct WorkBench {
   int16_t left_frame_num;  // 剩余生产时间
   float x;                 // 坐标
   float y;
-  int32_t raw_material;  // 有哪些原材料
+  int32_t raw_material;      // 已经有哪些原材料
+  int32_t pending_material;  // 有哪些原材料正在等待机器人送货
 };
 
 struct Robot {
-  int8_t workbench_id;   // 所处工作台id 0~n-1
-  int8_t product_type;   // 携带的物品类型
+  int8_t curr_workbench_id;  // 当前所处工作台id -1 ~ n-1
+  int8_t product_type;       // 携带的物品类型，0 ~ 7
+
+  // 是否正在执行任务, 0 表示没有执行任务
+  // 1 表示要去买东西，2 表示要去卖东西
+  int8_t doing_task : 3;
+  int8_t buy_type : 5;         // 要买的产品的类型//23
+  int8_t target_workbench_id;  // 卖或买的目的地，0 ~ n-1
+
   double time_value;     // 时间价值系数
   double collide_value;  // 碰撞价值系数
   double angular_speed;  // 角速度
@@ -84,8 +92,11 @@ class Scheduler {
   // 游戏实时状态信息
   int32_t m_curr_money = 200000;  // 当前金钱数
   int32_t m_frame_no = 1;         // 帧序号（从 1 开始递增）
-  constexpr float half_;
-  int32_t m_workbench_num = 0;  // 工作台实际数量
+  const float GRID_HEIGHT;        // 一个网格的高度
+  const float GRID_LENGTH;        // 一个网格的长度
+  const float HALF_GRID_HEIGHT;   // 一个网格的一半高度
+  const float HALF_GRID_LENGTH;   // 一个网格的一半长度
+  int32_t m_workbench_num = 0;    // 工作台实际数量
   WorkBench m_workbench[MAX_WORKBENCH_NUM];
   Robot m_robot[ROBOT_NUM];
 
