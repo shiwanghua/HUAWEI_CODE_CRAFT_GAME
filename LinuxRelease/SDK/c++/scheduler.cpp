@@ -20,8 +20,10 @@ bool Scheduler::Init() {
       else if (line[c] == 'A') {
         m_robot[robot_num].curr_workbench_id = -1;
         m_robot[robot_num].product_type = 0;
-        m_robot[robot_num].doing_task = 0;
-        m_robot[robot_num].target_workbench_id = -1;
+        m_robot[robot_num].state = NoTask;
+        m_robot[robot_num].transport_type = 0;
+        m_robot[robot_num].buy_workbench_id = -1;
+        m_robot[robot_num].sell_workbench_id = -1;
         m_robot[robot_num].time_value = 0;
         m_robot[robot_num].collide_value = 0;
         m_robot[robot_num].angular_speed = 0;
@@ -38,6 +40,9 @@ bool Scheduler::Init() {
         m_workbench[m_workbench_num].left_frame_num = -1;
         m_workbench[m_workbench_num].raw_material = 0;
         m_workbench[m_workbench_num].has_product = 0;
+
+        m_workbench_type_id[m_workbench[m_workbench_num].type].push_back(
+            m_workbench_num);
         m_workbench_num++;
       } else {
         std::cerr << "error map.\n";
@@ -57,21 +62,90 @@ void Scheduler::ProcessAFrame() {
   }
 
   for (int32_t wi = 0; wi < m_workbench_num; wi++) {
-    cin >> m_workbench[wi].type >> m_workbench[wi].x >> m_workbench[wi].y >>
-        m_workbench[wi].left_frame_num >> m_workbench[wi].raw_material >>
-        m_workbench[wi].has_product;
+    std::cin >> m_workbench[wi].type >> m_workbench[wi].x >>
+        m_workbench[wi].y >> m_workbench[wi].left_frame_num >>
+        m_workbench[wi].raw_material >> m_workbench[wi].has_product;
   }
 
   for (int32_t ri = 0; ri < m_workbench_num; ri++) {
-    std::cin >> m_robot[ri].curr_workbench_id >> m_robot[ri].product_type >>
-        m_robot[ri].time_value >> m_robot[ri].collide_value >>
-        m_robot[ri].angular_speed >> m_robot[ri].x_line_speed >>
-        m_robot[ri].y_line_speed >> m_robot[ri].x >> m_robot[ri].y;
-    if (m_robot[ri].doing_task) {
-      if (m_robot[ri].curr_workbench_id == m_robot[ri].target_workbench_id) {
-        if (m_robot) }
+    Robot& robot = m_robot[ri];
+    std::cin >> robot.curr_workbench_id >> robot.product_type >>
+        robot.time_value >> robot.collide_value >> robot.angular_speed >>
+        robot.x_line_speed >> robot.y_line_speed >> robot.x >> robot.y;
+    switch (robot.state) {
+      case NoTask:
+
+        break;
+      case OnTaskWait:
+
+        break;
+
+      case TurnBuy:
+
+        break;
+      case GoToBuy:
+        // 还没到达工作台
+        if (robot.curr_workbench_id != robot.buy_workbench_id) {
+          // 离目的地的方向向量
+          double dx = m_workbench[robot.buy_workbench_id].x - robot.x;
+          double dy = m_workbench[robot.buy_workbench_id].y - robot.y;
+          double distance = sqrt(dx * dx + dy * dy);  // 离目标多远
+          // 求朝向弧度值
+          double target_direction = asin(dy / distance);
+          if (dx < 0) {  // 第2、3象限，asin无法表示
+            if (dy > 0) {
+              target_direction = M_PI - target_direction;
+            } else {
+              target_direction = -M_PI - target_direction;
+            }
+          }
+
+          // 方向无偏差，直行
+          if (abs(robot.direction - target_direction) <= MIN_DIRECTION_DIFF) {
+            printf("rotate %d 0\n", ri);
+            double line_speed = sqrt(robot.x_line_speed * robot.x_line_speed +
+                                     robot.y_line_speed * robot.y_line_speed);
+            distance -= STOP_DIS;  // 还要走多远就停下
+            if (distance <= DECELERATION_DIS_IDLE) {  // 开始减速
+              printf("forward %d 0.1\n", ri);
+            } else {  // 保持最大速度
+              printf("forward %d 6\n", ri);
+            }
+          } else {  // 方向有偏差，停下来旋转
+          }
+        } else {  // 到达目的工作台, 一直尝试买
+          if (robot.product_type != robot.transport_type) {  // 买产品
+            printf("rotate %d 0\nforward %d 0", ri, ri);
+            printf("buy %d\n", ri);
+          } else {  // 买到了，等待直到速度为 0
+            robot.state = WaitAfterBuy;
+            if (robot.angular_speed || robot.x_line_speed ||
+                robot.y_line_speed) {
+              printf("rotate %d 0\nforward %d 0", ri, ri);
+            } else {  // 完全停止，开始去卖工作台的路上
+              robot.state = TurnSell;
+            }
+          }
+        }
+        break;
+
+      case WaitAfterBuy:
+
+        break;
+
+      case TurnSell:
+
+        break;
+
+      case GoToSell:
+
+        break;
+
+      default:
+        std::cerr << "Error state." << std::endl;
     }
   }
+
   char line[256];
   fgets(line, sizeof line, stdin);
   if (line[0] != 'O') {
